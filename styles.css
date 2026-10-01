@@ -1,0 +1,199 @@
+@import url('https://fonts.googleapis.com/css2?family=Courier+Prime:wght@400;700&family=Work+Sans:wght@400;500;600;700&display=swap');
+
+:root {
+  --cabinet: #1F3A34;
+  --cabinet-light: #294A42;
+  --cabinet-edge: #3A6158;
+  --card-bg: #FBFAF6;
+  --rule-blue: #D4E2EE;
+  --rule-red: #C8453B;
+  --text-main: #22313F;
+  --text-muted: #5E6B78;
+  --text-light: #E6EFEA;
+  --text-light-muted: #A9C1B8;
+  --accent: #E0A526;
+}
+
+body {
+  font-family: "Work Sans", system-ui, -apple-system, "Segoe UI", sans-serif;
+  background-color: var(--cabinet);
+  color: var(--text-light);
+  max-width: 860px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.header {
+  margin-bottom: 24px;
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+
+.header::before {
+  content: "";
+  width: 44px;
+  height: 14px;
+  border-radius: 0 0 22px 22px;
+  border: 3px solid var(--accent);
+  border-top: none;
+  flex-shrink: 0;
+  margin-top: 6px;
+}
+
+.header h2 {
+  margin: 0;
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-weight: 700;
+  font-size: clamp(1.8rem, 5vw, 2.4rem);
+  letter-spacing: -0.01em;
+  color: var(--text-light);
+}
+
+.controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(170px, 1fr));
+  gap: 16px;
+  background: var(--cabinet-light);
+  padding: 20px;
+  border-radius: 4px;
+  border: 1px solid var(--cabinet-edge);
+  box-shadow: inset 0 -4px 0 rgba(0, 0, 0, 0.18);
+  margin-bottom: 24px;
+}
+
+.filter-group {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+
+.filter-group label {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--text-light-muted);
+}
+
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  padding: 10px 36px 10px 12px;
+  border-radius: 3px;
+  border: 1px solid transparent;
+  font-family: inherit;
+  font-size: 1rem;
+  color: var(--text-main);
+  background-color: var(--card-bg);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%2322313F' stroke-width='2'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+select:hover {
+  border-color: var(--accent);
+}
+
+.toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin: -8px 0 18px;
+}
+
+.result-count {
+  font-size: 0.9rem;
+  color: var(--text-light-muted);
+}
+
+.reset-btn {
+  padding: 8px 16px;
+  border-radius: 3px;
+  border: 2px solid var(--accent);
+  background: transparent;
+  color: var(--accent);
+  font-family: inherit;
+  font-size: 0.9rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.reset-btn:hover {
+  background: var(--accent);
+  color: var(--cabinet);
+}
+
+select:focus-visible,
+.reset-btn:focus-visible {
+  outline: 3px solid var(--accent);
+  outline-offset: 2px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 18px;
+}
+
+.card {
+  position: relative;
+  background-color: var(--card-bg);
+  padding: 14px 18px 30px;
+  border-radius: 2px;
+  box-shadow: 0 2px 0 rgba(0, 0, 0, 0.12), 0 6px 14px rgba(0, 0, 0, 0.22);
+  color: var(--text-main);
+  line-height: 26px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  bottom: 9px;
+  left: 50%;
+  width: 12px;
+  height: 12px;
+  margin-left: -6px;
+  border-radius: 50%;
+  background: var(--cabinet);
+}
+
+.card h3 {
+  margin: 0 0 10px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--rule-red);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 1.15rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+
+.detail {
+  font-size: 0.92rem;
+  margin: 0;
+  padding: 3px 0 2px;
+  border-bottom: 1px solid var(--rule-blue);
+  color: var(--text-muted);
+}
+
+.detail strong {
+  color: var(--text-main);
+  font-weight: 600;
+}
+
+.empty-state {
+  text-align: center;
+  padding: 48px 20px;
+  color: var(--text-light-muted);
+  font-family: "Courier Prime", "Courier New", monospace;
+  font-size: 1.05rem;
+  border: 2px dashed var(--cabinet-edge);
+  border-radius: 4px;
+  grid-column: 1 / -1;
+}
+
+@media (max-width: 480px) {
+  body { margin: 24px auto; }
+  .controls { padding: 16px; }
+}

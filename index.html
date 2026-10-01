@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Directory Filter</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <div class="header">
+    <h2>Directory Records</h2>
+  </div>
+
+  <div class="controls">
+    <div class="filter-group">
+      <label for="ageFilter">Age Bracket</label>
+      <select id="ageFilter" onchange="applyFilters()">
+        <option value="all">All Ages</option>
+        <option value="18-20">18 - 20</option>
+        <option value="21-25">21 - 25</option>
+        <option value="26-30">26 - 30</option>
+        <option value="31-35">31 - 35</option>
+        <option value="36-40">36 - 40</option>
+        <option value="41-45">41 - 45</option>
+        <option value="46-50">46 - 50</option>
+        <option value="51-55">51 - 55</option>
+        <option value="56-60">56 - 60</option>
+        <option value="61+">61+</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="professionFilter">Profession</label>
+      <select id="professionFilter" onchange="applyFilters()">
+        <option value="all">All Professions</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="genderFilter">Gender</label>
+      <select id="genderFilter" onchange="applyFilters()">
+        <option value="all">All Genders</option>
+      </select>
+    </div>
+    <div class="filter-group">
+      <label for="sortBy">Sort By</label>
+      <select id="sortBy" onchange="applyFilters()">
+        <option value="name-asc">Name (A to Z)</option>
+        <option value="name-desc">Name (Z to A)</option>
+        <option value="age-asc">Age (Youngest first)</option>
+        <option value="age-desc">Age (Oldest first)</option>
+        <option value="profession-asc">Profession (A to Z)</option>
+        <option value="gender-asc">Gender (A to Z)</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <span id="resultCount" class="result-count"></span>
+    <button type="button" class="reset-btn" onclick="resetFilters()">Reset filters</button>
+  </div>
+
+  <div id="resultsGrid" class="grid">
+    <div class="empty-state">Awaiting data...</div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
